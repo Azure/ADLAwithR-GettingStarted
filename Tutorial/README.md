@@ -1,7 +1,7 @@
 # Contents
 
 
-In this tutorial folder you will find a set of exercises with usql and R scripts with description of the exercise. The advanced folder contains more detailed examples of some use cases.
+In this tutorial folder you will find a set of exercises to help you get started with using Azure Data Lake Analytics with R for Data Science work. Each Exercise folder contains usql and R scripts with description of the exercise. The advanced folder contains some more complex examples.
 
 ## [Exercise 1](../Tutorial/Exercise1/)
 ## [Exercise 2](../Tutorial/Exercise2/)

@@ -1,7 +1,5 @@
 REFERENCE ASSEMBLY [ExtR];   //enable R extensions for the U-SQL Script
 
-
-
 //declare the R script as a string variable and pass it as a parameter to the Reducer:
 DECLARE @myRScript = @"
 temp = inputFromUSQL
@@ -9,7 +7,7 @@ temp$mynewcol = ncol(temp)
 outputToUSQL = temp
 ";
 
-//what value do you expect in this 'mynewcol' ? there were 5 cols but see 6 instead because of PAR
+//Question: What value do you expect to see in this 'mynewcol' ? there were 5 cols in iris data but see 6 instead because of PAR
 
 DECLARE @myInputFile string  = @"/TutorialMaterial/myiris_wheader.csv";
 DECLARE @myOutputFile string = @"/TutorialMaterial/outex1.txt";
@@ -24,13 +22,12 @@ FROM @myInputFile
 USING Extractors.Csv(skipFirstNRows: 1);
 //USING Extractors.Csv();  //if myInputFile file has no headers
 	
-
-
 @ExtendedData = SELECT 
 0 AS Par,
 *
 FROM @InputIrisData;
  
+//Column names and types must be same in usql and r scripts
 @RScriptOutput = REDUCE @ExtendedData ON Par PRODUCE 
 Par, 
 sepal_length string,
@@ -38,8 +35,9 @@ sepal_width string,
 petal_length string,
 petal_width string,
 label string,
-mynewcol int     //Column names must be same in usql and r scripts. types should be same too
+mynewcol int     
 USING new Extension.R.Reducer(command:@myRScript, rReturnType:"dataframe");
+
 
 
 //OUTPUT @RScriptOutput TO @myOutputFile USING Outputters.Tsv();	
