@@ -3,7 +3,7 @@
 
 In this tutorial folder you will find a set of exercises with usql and R scripts with description of the exercise. The advanced folder contains more detailed examples of some use cases.
 
-## [Exercise 1](/Exercise1/)
+## [Exercise 1](../Tutorial/Exercise1/)
 ## [Exercise 2](/Exercise2/)
 ## Exercise 3
 ## Exercise 4
