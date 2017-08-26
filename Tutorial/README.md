@@ -6,7 +6,7 @@ In this tutorial folder you will find a set of exercises to help you get started
 Note: Upload myiris.csv and myiris_header.csv to /TutorialMaterial 
 
 #### [Exercise 1](../Tutorial/Exercise1/) - Inline R code.
-## [Exercise 2](../Tutorial/Exercise2/) - Deploy R script as resource.
+### [Exercise 2](../Tutorial/Exercise2/) - Deploy R script as resource.
 ## [Exercise 3](../Tutorial/Exercise3/) - Check the R environment in ADLA. Install the magrittr package.
 ## [Exercise 4](../Tutorial/Exercise4/) - Using checkpoint to create a zip file containing required packages and all the dependencies. Demonstrate how to deploy and use dplyr package.
 ## [Exercise 5](../Tutorial/Exercise5/) - Understanding how partitioning works. Specifically the REDUCE operation. 
