@@ -1,0 +1,45 @@
+REFERENCE ASSEMBLY [ExtR];
+
+//declare the R script as a string variable and pass it as a parameter to the Reducer:
+DECLARE @myRScript = @"
+temp = inputFromUSQL
+
+t1 = loadedNamespaces()
+temp = data.frame(loadedNamespaces = t1) 
+
+t2 = data.frame(apply(temp[1],1,FUN=function(x){paste(unlist(packageVersion(as.character(x))),collapse='.')}) )
+names(t2) = 'packageVersion'
+temp$packageVersion = t2$packageVersion
+
+t3 = sessionInfo()[1]
+t3 = t3$R.version$version.string
+t3 = as.character(t3)
+temp$Rversion = t3
+temp$Rversion[2:nrow(temp)]=''
+
+outputToUSQL = temp
+";
+
+DECLARE @myOutputFile string  = @"/TutorialMaterial/outex3a.txt";
+	
+@somedata  = 
+    SELECT * FROM 
+        (VALUES
+            ("Contoso", 1500.0),
+            ("Woodgrove", 2700.0)
+        ) AS 
+              D( customer, amount );
+	
+@ExtendedData =
+    SELECT 0 AS Par,
+           *
+    FROM @somedata;
+ 
+@RScriptOutput = REDUCE @ExtendedData ON Par
+PRODUCE Par,  
+loadedNamespaces string,
+packageVersion string,
+Rversion string 
+USING new Extension.R.Reducer(command:@myRScript, rReturnType:"dataframe");
+
+OUTPUT @RScriptOutput TO @myOutputFile USING Outputters.Csv(outputHeader : true, quoting : true); 

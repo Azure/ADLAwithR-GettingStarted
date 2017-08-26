@@ -1,0 +1,52 @@
+
+REFERENCE ASSEMBLY [ExtR];   //enable R extensions for the U-SQL Script
+
+//declare the R script as a string variable and pass it as a parameter to the Reducer:
+
+DECLARE @myRScript = @"
+temp = inputFromUSQL
+#sepal_length was string so change to numeric before summation
+temp$sepal_length = as.numeric(as.character(temp$sepal_length))
+temp$mynewcol = ncol(temp) 
+temp$sum_sepal_length = sum(temp$sepal_length) 
+outputToUSQL = temp
+";
+
+
+DECLARE @myInputFile string  = @"/TutorialMaterial/myiris.csv";
+DECLARE @myOutputFile string = @"/TutorialMaterial/outex5b.txt";
+
+DECLARE @PartitionCount int = 5;
+
+@InputIrisData = EXTRACT 
+sepal_length string,
+sepal_width string,
+petal_length string,
+petal_width string,
+species string	
+FROM @myInputFile
+//USING Extractors.Csv(skipFirstNRows: 1);
+USING Extractors.Csv();  //if myInputFile file has no headers
+	
+@ExtendedData = 
+SELECT Extension.R.RandomNumberGenerator.GetRandomNumber(@PartitionCount) AS Par,
+*
+FROM @InputIrisData;
+ 
+@RScriptOutput = REDUCE @ExtendedData ON Par PRODUCE 
+Par , 
+sepal_length double,  //since changed the type in r script
+sepal_width string,
+petal_length string,
+petal_width string,
+species string,
+mynewcol int,    
+sum_sepal_length double   
+USING new Extension.R.Reducer(command:@myRScript, rReturnType:"dataframe");
+
+
+OUTPUT @RScriptOutput TO @myOutputFile USING Outputters.Tsv();	
+//OUTPUT @RScriptOutput TO @myOutputFile USING Outputters.Csv(outputHeader : true, quoting:false);  //if want the headers as well
+
+
+

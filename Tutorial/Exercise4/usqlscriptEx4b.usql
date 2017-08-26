@@ -1,0 +1,61 @@
+﻿REFERENCE ASSEMBLY [ExtR];
+
+DEPLOY RESOURCE @"/TutorialMaterial/dplyrWithDependencies.zip";
+
+DECLARE @myInputFile string  = @"/TutorialMaterial/myiris_wheader.csv";
+DECLARE @myOutputFile string = @"/TutorialMaterial/outex4b.txt";
+
+// R script to run
+DECLARE @myRScript = @"
+.libPaths(c(.libPaths(), getwd()))
+# unzip the packages,
+if (require(dplyr)==FALSE)
+  {
+    unzip('dplyrWithDependencies.zip')
+    require(dplyr)
+   }
+# demonstrate use of the installed packages
+iris <- inputFromUSQL %>% select(-Par)
+outputToUSQL <- iris %>%
+  group_by(species) %>%
+  summarise(mean_sepal_length = mean(sepal_length),
+            mean_sepal_width = mean(sepal_width),
+            mean_petal_length = mean(petal_length),
+            mean_petal_width = mean(petal_width))
+
+outputToUSQL = as.data.frame(outputToUSQL)
+outputToUSQL
+";
+
+
+@InputIrisData = EXTRACT 
+sepal_length double,
+sepal_width double,
+petal_length double,
+petal_width double,
+species string	
+FROM @myInputFile
+USING Extractors.Csv(skipFirstNRows: 1);
+//USING Extractors.Csv();  //if myInputFile file has no headers
+
+
+@ExtendedData = SELECT 
+0 AS Par,
+*
+FROM @InputIrisData;
+ 
+
+@RScriptOutput = REDUCE @ExtendedData ON Par PRODUCE 
+species string,
+mean_sepal_length double,
+mean_sepal_width double,
+mean_petal_length double,
+mean_petal_width double
+USING new Extension.R.Reducer(command:@myRScript, rReturnType:"dataframe");
+
+
+//OUTPUT @RScriptOutput TO @myOutputFile USING Outputters.Tsv();	
+OUTPUT @RScriptOutput TO @myOutputFile USING Outputters.Csv(outputHeader : true, quoting:false);  //if want the headers as well
+
+
+

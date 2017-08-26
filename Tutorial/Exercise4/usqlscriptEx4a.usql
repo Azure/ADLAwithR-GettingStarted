@@ -1,0 +1,59 @@
+﻿REFERENCE ASSEMBLY [ExtR];
+
+DEPLOY RESOURCE @"/TutorialMaterial/dplyrWithDependencies.zip";
+
+DECLARE @myInputFile string   = @"/TutorialMaterial/myiris_wheader.csv";
+DECLARE @myOutputFile string = @"/TutorialMaterial/outex4a.txt";
+
+// R script to run
+DECLARE @myRScript = @"
+.libPaths(c(.libPaths(), getwd()))
+
+ip = as.data.frame(installed.packages())
+df = data.frame(packages_i=c(levels(ip$Package),replicate(n=20,'blank')))
+
+# unzip the packages,
+if (require(dplyr)==FALSE)
+  {
+    unzip('dplyrWithDependencies.zip')
+    require(dplyr)
+   }
+   
+ip = as.data.frame(installed.packages())
+final_packages = levels(ip$Package)
+final_packages = c(final_packages,replicate(n=(nrow(df)-length(final_packages)) , 'blank'))
+
+df$packages_f = final_packages
+
+outputToUSQL = df
+";
+
+
+@InputIrisData = EXTRACT 
+sepal_length string,
+sepal_width string,
+petal_length string,
+petal_width string,
+species string	
+FROM @myInputFile
+USING Extractors.Csv(skipFirstNRows: 1);
+//USING Extractors.Csv();  //if myInputFile file has no headers
+
+
+@ExtendedData = SELECT 
+0 AS Par,
+*
+FROM @InputIrisData;
+ 
+
+@RScriptOutput = REDUCE @ExtendedData ON Par
+PRODUCE Par,  
+packages_i string,
+packages_f string
+USING new Extension.R.Reducer(command:@myRScript, rReturnType:"dataframe");
+
+
+OUTPUT @RScriptOutput TO @myOutputFile USING Outputters.Csv(outputHeader : true, quoting:false);  
+
+
+

@@ -1,14 +1,14 @@
 REFERENCE ASSEMBLY [ExtR];   //enable R extensions for the U-SQL Script
 
-
 // Deploy R script as resource
 DECLARE @myRScript string     = @"rscriptEx2.R";
 DEPLOY RESOURCE @"/TutorialMaterial/rscriptEx2.R";
 
+// To make the code generic can also declare like below and use scriptFile:@myRScript in Extension.R.Reducer 
 //DECLARE @path_rscript string  = @"/TutorialMaterial";
 //DECLARE @myRScript string     = @"rscriptEx2.R";
 //DECLARE @rscriptdeploy string = @path_rscript + @"/" + @myRScript;
-//DEPLOY RESOURCE @rscriptdeploy;  //"rscriptEx2.R" available in R workspace or cwd
+//DEPLOY RESOURCE @rscriptdeploy;  
 
 DECLARE @myInputFile string  = @"/TutorialMaterial/myiris.csv";
 DECLARE @myOutputFile string = @"/TutorialMaterial/outex2.txt";
@@ -18,7 +18,7 @@ sepal_length string,
 sepal_width string,
 petal_length string,
 petal_width string,
-label string	
+species string	
 FROM @myInputFile
 USING Extractors.Csv();
 	
@@ -34,10 +34,10 @@ sepal_length string,
 sepal_width string,
 petal_length string,
 petal_width string,
-label string,
+species string,
 mynewcol int     //Column names must be same in usql and r scripts.     
-USING new Extension.R.Reducer(scriptFile:"rscriptEx2.R", rReturnType:"dataframe");
-//USING new Extension.R.Reducer(scriptFile:@myRScript, rReturnType:"dataframe");
+USING new Extension.R.Reducer(scriptFile:@myRScript, rReturnType:"dataframe");
+//USING new Extension.R.Reducer(scriptFile:"rscriptEx2.R", rReturnType:"dataframe"); // -- If did not declare string myRScript above
 
 
 OUTPUT @RScriptOutput TO @myOutputFile USING Outputters.Tsv();	
