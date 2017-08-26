@@ -1,6 +1,6 @@
 # Exercise 4
 
-In this exercise we will create a zip file using checkpoint package locally. We will upload this zip file along with myiris_wheader.csv to /TutorialMaterial Data lake store and deploy it usql script.
+In this exercise we will create a zip file using checkpoint package locally. We will upload this zip file along with myiris_wheader.csv to /TutorialMaterial  in Data lake store and deploy it usql script.
 
 More on checkpoint package :-
 
@@ -14,6 +14,7 @@ are available to your project, thereby avoiding any package updates that came
 later and may have altered your results. In this way, anyone using checkpoint's
 checkpoint() can ensure the reproducibility of your scripts or projects at any
 time*"
+
 Source: https://cran.r-project.org/web/packages/checkpoint/checkpoint.pdf 
 
 

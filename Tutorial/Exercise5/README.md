@@ -13,7 +13,9 @@ PRODUCE ....
 In real scenarios, we could partition by time/date, by machine ID, by hospital ID columns etc.
 
 In usqlscriptEx5a.usql instead of a pseudo partition column, the partition column will unequally partition the rowsets into five parts.
+
 In usqlscriptEx5b.usql, we demonstrate aggregation on partitioned data. Look at the values in sum_sepal_length to convince yourself.
+
 In usqlscriptEx5c.usql we partition on species column instead of creating another column to partition on and aggregate.
 
 
