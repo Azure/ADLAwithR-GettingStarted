@@ -1,0 +1,38 @@
+REFERENCE ASSEMBLY [ExtR];   //enable R extensions for the U-SQL Script
+
+//declare the R script as a string variable and pass it as a parameter to the Reducer:
+DECLARE @myRScript = @"
+inputFromUSQL$species <- as.factor(inputFromUSQL$species),
+lm.fit <- lm(unclass(species)~.-Par, data=inputFromUSQL),
+summary(lm.fit)
+";
+
+DECLARE @myInputFile string   = @"/TutorialMaterial/myiris_wheader.csv";
+DECLARE @myOutputFile string = @"/TutorialMaterial/outex6b.txt";
+
+@InputIrisData = EXTRACT 
+sepal_length string,
+sepal_width string,
+petal_length string,
+petal_width string,
+species string	
+FROM @myInputFile
+USING Extractors.Csv(skipFirstNRows: 1);
+//USING Extractors.Csv();  //if myInputFile file has no headers
+	
+
+
+@ExtendedData = SELECT 
+0 AS Par,
+*
+FROM @InputIrisData;
+ 
+@RScriptOutput = REDUCE @ExtendedData ON Par PRODUCE 
+Par, 
+RowId int,
+ROutput string
+USING new Extension.R.Reducer(command:@myRScript, rReturnType:"charactermatrix");
+
+
+//OUTPUT @RScriptOutput TO @myOutputFile USING Outputters.Tsv();	
+OUTPUT @RScriptOutput TO @myOutputFile USING Outputters.Csv(outputHeader : true, quoting:false);  //if want the headers as well

@@ -1,6 +1,8 @@
 # Exercise 3
 
-In this exercise I will demonstrate how to check the R environment in ADLA. The idea is to ensure that the environment we develop our codes locally in is the same at the one available in ADLA. 
+In this exercise I will demonstrate how to check the R environment in ADLA. The idea is to ensure that the environment we develop our codes locally in is the same at the one available in ADLA. The R extension supports a set of R packages by default. For additional packages, we need to upload it as a zip file, declare it as RESOURCE in U-SQL and then install in our R script.
+
+
 
 
 In usqlscriptEx3a.usql we will create a file 'outex3a.txt' that will contain all the information about the R environment in ADLA
