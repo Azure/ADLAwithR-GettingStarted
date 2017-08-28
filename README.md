@@ -22,4 +22,4 @@ R Extensions for U-SQL enable developers to perform massively parallel execution
 You need a Data Lake Analytics account before you can run any jobs. If you don't have one please follow the instructions [here](/Azure%20CLI/) to create one (this is assuming you satisfy the prequisite of having an [azure subsciption](https://azure.microsoft.com/en-us/free/)). You will also need to [enable](https://blogs.msdn.microsoft.com/tsmatsuz/2017/06/08/azure-data-lake-r-extension/) “U-SQL Advanced Analytics”, which includes the package for the R extension. In this tutorial we will be using Azure CLI to perform the following tasks: Upload data to Data Lake Store,
 Submit Data Lake Analytics jobs and Retrieve job results. In the [Azure CLI folder](/Azure%20CLI/) above you can find the commands to manage Data Lake Analytics accounts, jobs etc.
 
-## Additional Resources
+## [Additional Resources](/Azure%20CLI/Additional%20Resouces.md)
