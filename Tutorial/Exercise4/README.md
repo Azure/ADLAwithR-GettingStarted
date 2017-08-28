@@ -21,6 +21,6 @@ Source: https://cran.r-project.org/web/packages/checkpoint/checkpoint.pdf
 The zip file dplyrWithDependencies.zip containing dplyr and all the dependent packages was created using the R script 'R_local_CreateCheckpointForDplyr.R'. Run this script locally in your development environment and upload the zip file created to /TutorialMaterial.
 
 
-In usqlscriptEx4a.usql, we will look at the available packages before and after deploying dplyrWithDependencies.zip to convince ourselves that the desired packages are now available in ADLA R environment.
+In `usqlscriptEx4a.usql`, we will look at the available packages before and after deploying dplyrWithDependencies.zip to convince ourselves that the desired packages are now available in ADLA R environment.
 
-In usqlscriptEx4b.usql we will deploy dplyrWithDependencies.zip and use dplyr in the R script.
+In `usqlscriptEx4b.usql` we will deploy dplyrWithDependencies.zip and use dplyr in the R script.
