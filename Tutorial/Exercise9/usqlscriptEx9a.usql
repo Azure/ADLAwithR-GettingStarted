@@ -1,0 +1,36 @@
+REFERENCE ASSEMBLY [ExtR];
+
+DECLARE @myInputFile string   = @"/TutorialMaterial/myiris.csv";
+DECLARE @myOutputFile string = @"/TutorialMaterial/outex9a.txt";
+
+DECLARE @myRScript = @"
+require(RevoScaleR),
+cat('Printing first line \n'),
+outputToUSQL = rxDTree(Species ~ SepalLength, data=inputFromUSQL),
+cat('Printing a line \n')
+";
+
+
+@InputData =
+    EXTRACT SepalLength double,
+            SepalWidth double,
+            PetalLength double,
+            PetalWidth double,
+            Species  string
+    FROM @myInputFile
+    USING Extractors.Csv();
+
+@ExtendedData =
+SELECT 
+0 AS Par,
+*
+FROM @InputData;
+	
+@RScriptOutput = REDUCE @ExtendedData ON Par
+PRODUCE Par, 
+RowId int, 
+ROutput string
+READONLY Par
+USING new Extension.R.Reducer(command:@myRScript, rReturnType:"charactermatrix", stringsAsFactors:true);
+
+OUTPUT @RScriptOutput TO @myOutputFile USING Outputters.Tsv();
