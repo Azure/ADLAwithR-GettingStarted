@@ -1,9 +1,8 @@
-# Azure CLI
+# Get Started with Azure Data Lake Analytics Using Azure CLI   
 
 There are multiple ways to manage Azure Data Lake Analytics viz. Azure Portal, Azure Power Shell, Visual Studio and Azure CLI. In this tutorial we will use Azure CLI to various tasks such as managing and submitting jobs.
 
-For a detailed syntax help with Azure CLI command please see the resources below. 
-
+For a detailed syntax help with Azure CLI command please see the resources below:-  
 [Manage Azure Data Lake Analytics using Azure Command-line Interface (CLI)](https://docs.microsoft.com/en-us/azure/data-lake-analytics/data-lake-analytics-manage-use-cli)  
 [Get started with Azure Data Lake Analytics using Azure CLI 2.0](https://docs.microsoft.com/en-us/azure/data-lake-analytics/data-lake-analytics-get-started-cli2)  
 [Get started with Azure Data Lake Store using Azure CLI 2.0](https://docs.microsoft.com/en-us/azure/data-lake-store/data-lake-store-get-started-cli-2.0)   
