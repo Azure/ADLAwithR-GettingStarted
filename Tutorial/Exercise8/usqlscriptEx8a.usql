@@ -5,7 +5,7 @@ DEPLOY RESOURCE @"/TutorialMaterial/base64enc.zip";
 DEPLOY RESOURCE @"/TutorialMaterial/rscriptEx8a.R";
 
 
-DECLARE @myInputFile1 string   = @"/TutorialMaterial/outex7b.txt";
+DECLARE @myInputFile1 string   = @"/TutorialMaterial/outex7a.txt";
 DECLARE @myInputFile2 string   = @"/TutorialMaterial/myiris_wheader.csv";
 DECLARE @myOutputFile string   = @"/TutorialMaterial/outex8a.txt";
 
@@ -15,7 +15,7 @@ DECLARE @PartitionCount int = 5;
 @Models = EXTRACT 
 MPar int, 
 Model string 
-FROM @myInputFilee USING Extractors.Tsv();
+FROM @myInputFile1 USING Extractors.Tsv();
 
 @InputData = EXTRACT 
 SepalLength double,
@@ -23,7 +23,7 @@ SepalWidth double,
 PetalLength double,
 PetalWidth double,
 Species  string
-FROM @myInputFile
+FROM @myInputFile2
 USING Extractors.Csv();
 
 @ExtendedData = SELECT
