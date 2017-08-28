@@ -1,0 +1,46 @@
+REFERENCE ASSEMBLY [ExtR];
+
+DECLARE @myInputFile string   = @"/TutorialMaterial/myiris.csv";
+DECLARE @myOutputFile string = @"/TutorialMaterial/outex7a.txt";
+
+DEPLOY RESOURCE @"/TutorialMaterial/base64enc.zip";
+
+
+DECLARE @myRScript = @"
+inputFromUSQL$Species = as.factor(inputFromUSQL$Species)
+lm.fit=lm(unclass(Species)~., data=inputFromUSQL)
+.libPaths(c(.libPaths(), getwd()))
+if (require(base64enc)==FALSE)
+  {
+    unzip('base64enc.zip')
+    require(base64enc)
+   }
+outputToUSQL <- data.frame(Model=base64encode(serialize(lm.fit, NULL)), stringsAsFactors = FALSE)
+";
+
+DECLARE @PartitionCount int = 5;
+
+@InputData =
+    EXTRACT SepalLength double,
+            SepalWidth double,
+            PetalLength double,
+            PetalWidth double,
+            Species  string
+    FROM @myInputFile
+    USING Extractors.Csv();
+
+@ExtendedData =
+SELECT 
+Extension.R.RandomNumberGenerator.GetRandomNumber(@PartitionCount) AS Par,
+ *
+FROM @InputData;
+	
+@ModelCoefficients = REDUCE @ExtendedData ON Par
+PRODUCE 
+Par int, 
+Model string
+READONLY Par
+USING new Extension.R.Reducer(command:@myRScript, rReturnType:"dataframe"); // for inline R code
+
+
+OUTPUT @ModelCoefficients TO @myOutputFile USING Outputters.Tsv();

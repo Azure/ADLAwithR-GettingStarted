@@ -1,0 +1,34 @@
+REFERENCE ASSEMBLY [ExtR];
+
+DECLARE @myInputFile string   = @"/TutorialMaterial/myiris.csv";
+DECLARE @myOutputFile string = @"/TutorialMaterial/outex7b.txt";
+
+DEPLOY RESOURCE @"/TutorialMaterial/base64enc.zip";
+DEPLOY RESOURCE @"/TutorialMaterial/outex7a.txt";
+DEPLOY RESOURCE @"/TutorialMaterial/rscriptEx7b.R";
+
+
+DECLARE @PartitionCount int = 5;
+
+@InputData =
+    EXTRACT SepalLength double,
+            SepalWidth double,
+            PetalLength double,
+            PetalWidth double,
+            Species  string
+    FROM @myInputFile
+    USING Extractors.Csv();
+
+@ExtendedData =
+SELECT 
+Extension.R.RandomNumberGenerator.GetRandomNumber(@PartitionCount) AS Par,
+ *
+FROM @InputData;
+	
+@Predictions = REDUCE @ExtendedData ON Par
+PRODUCE 
+Prediction double
+USING new Extension.R.Reducer(scriptFile:"rscriptEx7b.R", rReturnType:"dataframe");
+
+
+OUTPUT @Predictions TO @myOutputFile USING Outputters.Tsv();
