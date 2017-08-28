@@ -1,6 +1,6 @@
 REFERENCE ASSEMBLY [ExtR];
 
-DEPLOY RESOURCE @"/usqlext/samples/R/magrittr_1.5.zip";
+DEPLOY RESOURCE @"/TutorialMaterial/magrittr_1.5.zip";
 
 //declare the R script as a string variable and pass it as a parameter to the Reducer:
 DECLARE @myRScript = @"

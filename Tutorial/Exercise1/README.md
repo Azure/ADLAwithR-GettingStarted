@@ -1,8 +1,8 @@
 # Excercise 1
 
-In this exercise, we will read a csv file with headers using usql and pass the file to the R scipt inside usql. Within the R script we will add a new column containing the number of columns in the input form USQL and notice the value. We will pass the results back to usql and save it with headers as csv file.
+In this exercise, we will read a csv file with headers using usql and pass the file to the R script inside usql. Within the R script we will add a new column containing the number of columns in the input form USQL and notice the value. We will pass the results back to usql and save it with headers as csv file.
 
-We uploaded the csv file myiris_wheader.csv to the folder TutorialMaterial that we created earlier in Data lake store.
+Please upload the csv files myiris_wheader.csv and myiris.csv to the folder TutorialMaterial that we created earlier in Data lake store. These csv files will be used in all the exercises.
 
 USQL uses schema on read paradigm, hence the headers will need to be skipped. We will do this by using 'skipFirstNRows' in the EXTRACT statement.  
 In this example we will embed the R code in the U-SQL script. (In [Exercise 2](../Exercise2/) we will keep the same R code in a separate file and reference it in the U-SQL script). We can inline the R code our U-SQL script by using the command parameter of the Extension.R.Reducer. We declare the R script as a string variable and pass it as a parameter to the Reducer.
