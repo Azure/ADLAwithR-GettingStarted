@@ -1,4 +1,4 @@
-# Get Started with Azure Data Lake Analytics Using Azure CLI   
+# Azure Data Lake Analytics with R Tutorial Using Azure CLI   
 
 There are multiple ways to manage Azure Data Lake Analytics viz. Azure Portal, Azure Power Shell, Visual Studio and Azure CLI. In this tutorial we will use Azure CLI to various tasks such as managing and submitting jobs.
 
