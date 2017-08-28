@@ -13,6 +13,6 @@ Note: Upload myiris.csv and myiris_header.csv to /TutorialMaterial
 #### [Exercise 6](../Tutorial/Exercise6/) - About rReturnType as “charactermatrix”.
 #### [Exercise 7](../Tutorial/Exercise7/) - Save the trained model. Deploy trained model for scoring.
 #### [Exercise 8](../Tutorial/Exercise8/) - Use R scripts as combiners (using COMBINE and Extension.R.Combiner).
-#### [Exercise 9](../Tutorial/Exercise9/) - MRS example.
+#### [Exercise 9](../Tutorial/Exercise9/) - Usq rxDTree() from RevoScaleR package.
 #### [Advanced](../Tutorial/Advanced/)    - More complex examples.
 

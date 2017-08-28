@@ -3,6 +3,6 @@ In the earlier examples the input from usql was a single data frame stored in in
 
 In `usqlscriptEx8a.usql' we send two inputs to the R script - the trained model and the data to score.
 
-https://msdn.microsoft.com/en-us/library/azure/mt621339.aspx
+More on [COMBINE Expression (U-SQL)](https://msdn.microsoft.com/en-us/library/azure/mt621339.aspx).
 
 
