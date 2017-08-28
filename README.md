@@ -3,11 +3,11 @@ by @Shaheen_Gauher
 
 Welcome to ***Getting Started with using ADLA with R*** tutorial! This tutorial is in the form of short exercises to help Data Scientists get started with using Azure Data Lake Analytics (ADLA) with R for Data Science work. In the [**tutorial**](/Tutorial/) folder above you will find a set of exercises with usql and R scripts with description of the exercise. In the [advanced](/Tutorial/Advanced/) folder under tutorial you will find some more complex examples. Below you will find a brief review of ADLA and USQL. I will also outline steps for deploying R code and to get started using Azure CLI.
 
-# Prerequisites
+# Prerequisites for [Tutorial](/Tutorial/)
 Before you begin this tutorial, you must have the following items:  
-An Azure subscription. See [Get Azure free trial](https://azure.microsoft.com/en-us/free/).  
-Azure CLI 2.0. See Install and configure [Azure CLI](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli).  
-Working knowledge of [R](https://cran.r-project.org/doc/manuals/R-intro.html). 
+- An Azure subscription. See [Get Azure free trial](https://azure.microsoft.com/en-us/free/).  
+- Azure CLI 2.0. See Install and configure [Azure CLI](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli).  
+- Working knowledge of [R](https://cran.r-project.org/doc/manuals/R-intro.html). 
 
 ## ADLA review
 Azure Data Lake Analytics is the first cloud on-demand analytics job service designed to make big data analytics easy. It has the capability to conduct data processing, advanced analytics, and machine learning modeling with high scalability in a cost-effective way. Using U-SQL, R, Python and .NET, it allows users to run massively parallel data transformation and processing over petabytes of data. A job in ADLA is submitted using a USQL script. 
