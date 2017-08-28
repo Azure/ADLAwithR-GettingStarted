@@ -30,7 +30,7 @@ If you don't already have one create a Data Lake Analytics account:
 
 
 After creating an account, you can use the following commands to list the accounts and show account details:  
-`az dla account list`
+`az dla account list`  
 `az dla account show --account "<Data Lake Analytics Account Name>"`
 
 
@@ -38,38 +38,38 @@ Now that we are set with a *Data Lake Analytics account* and a *Data Lake Store*
 
 `az dls fs create --account <Data Lake Store Account Name> --path /TutorialMaterial --folder`
 
-Next we will upload myiris.csv, myiris_wheader.csv and other files as required for the Exercise to this folder.
+Next we will upload myiris.csv, myiris_wheader.csv and other files as required for the Exercise to this folder.  
 `az dls fs upload --account <Data Lake Store Account Name> --source-path "PathTo\myiris.csv" --destination-path "/TutorialMaterial"`
 
 e.g. `az dls fs upload --account shaheenadls --source-path "C:\Users\shaheen\Documents\TutorialMaterial\myiris.csv" --destination-path "/TutorialMaterial"`
 
-Use the following command to list the files in a Data Lake Store account.
+Use the following command to list the files in a Data Lake Store account.  
 `az dls fs list --account <Data Lake Store Account Name> --path /TutorialMaterial`
 
-To submit jobs use the following syntax:- 
-`az dla job submit --account "<Data Lake Analytics Account Name>" --job-name "<Job Name>" --script "<Script Path and Name>"`
+To submit jobs use the following syntax:-   
+`az dla job submit --account "<Data Lake Analytics Account Name>" --job-name "<Job Name>" --script "<Script Path and Name>"`  
 
-az dla job submit --account "myadlaaccount" --job-name "myadlajob" --script @"C:\DLA\myscript.txt"
+az dla job submit --account "myadlaaccount" --job-name "myadlajob" --script @"C:\DLA\myscript.txt"  
 
-e.g. `az dla job submit --account "shaheenadla" --job-name "myadlajob1" --script @"C:\Users\shaheen\Documents\Conferences\TutorialMaterial\Exercise1\usqlscriptEx1.usql"`
+e.g. `az dla job submit --account "shaheenadla" --job-name "myadlajob1" --script @"C:\Users\shaheen\Documents\Conferences\TutorialMaterial\Exercise1\usqlscriptEx1.usql"`  
 "`
 
 To list jobs
-az dla job list --account "<Data Lake Analytics Account Name>"
-az dla job show --account "<Data Lake Analytics Account Name>" --job-identity "<Job Id>"
+az dla job list --account "<Data Lake Analytics Account Name>"  
+az dla job show --account "<Data Lake Analytics Account Name>" --job-identity "<Job Id>"  
 
 
-To Cancel job
-az dla job cancel --account "<Data Lake Analytics Account Name>" --job-identity "<Job Id>"
+To Cancel job  
+az dla job cancel --account "<Data Lake Analytics Account Name>" --job-identity "<Job Id>"  
 
-After a job is completed, you can use the following commands to list the output files, and download the files:
-az dls fs list --account "<Data Lake Store Account Name>" --source-path "/Output" --destination-path "<Destintion>"
+After a job is completed, you can use the following commands to list the output files, and download the files:  
+az dls fs list --account "<Data Lake Store Account Name>" --source-path "/Output" --destination-path "<Destintion>"  
 
-az dls fs preview --account "<Data Lake Store Account Name>" --path "/TutorialMaterial/SearchLog-from-Data-Lake.csv"
+az dls fs preview --account "<Data Lake Store Account Name>" --path "/TutorialMaterial/SearchLog-from-Data-Lake.csv"  
 
-az dls fs preview --account "<Data Lake Store Account Name>" --path "/Output/SearchLog-from-Data-Lake.csv" --length 128 --offset 0
+az dls fs preview --account "<Data Lake Store Account Name>" --path "/Output/SearchLog-from-Data-Lake.csv" --length 128 --offset 0  
 
-az dls fs download --account "<Data Lake Store Account Name>" --source-path "/Output/SearchLog-from-Data-Lake.csv" --destintion-path "<Destination Path and File Name>"
+az dls fs download --account "<Data Lake Store Account Name>" --source-path "/Output/SearchLog-from-Data-Lake.csv" --destintion-path "<Destination Path and File Name>"  
 
 
 
