@@ -17,9 +17,10 @@ Log into your Azure subscription
 Once you log in, the window lists all the Azure subscriptions that are associated with your account. Use the following command to use a specific subscription.  
 `az account set --subscription "My subscription"`
 
-To list of all resource groups in your subscription type (you will need to select from this list or create a new resource group for creating new Data Lake Store account or Data Lake Analytics account.  
-
+To list of all resource groups in your subscription type   
 `az group list` 
+
+You will need to select from this list or create a new resource group for creating new Data Lake Store account or Data Lake Analytics account. Each Data Lake Analytics account has an Azure Data Lake Store account dependency. This account is referred as the default Data Lake Store account. You can create the Data Lake Store account beforehand or when you create your Data Lake Analytics account. The default Data Lake Store account is used to store job metadata and job audit logs. After you have created an Analytics account, you can add additional Data Lake Storage accounts and/or Azure Storage account.       
 
 If you don't already have one create a new Data Lake Store account:  
 `az dls account create --account "<Data Lake Store Account Name>" --resource-group "<Resource Group Name>"`
