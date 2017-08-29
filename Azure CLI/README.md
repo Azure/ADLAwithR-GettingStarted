@@ -41,15 +41,15 @@ Now that we are set with a *Data Lake Analytics account* and a *Data Lake Store*
 Next we will upload myiris.csv, myiris_wheader.csv and other files as required for the Exercise to this folder.  
 `az dls fs upload --account <Data Lake Store Account Name> --source-path "PathTo\myiris.csv" --destination-path "/TutorialMaterial"`
 
-e.g. `az dls fs upload --account shaheenadls --source-path "C:\Users\shaheen\Documents\Tutorial\myiris.csv" --destination-path "/TutorialMaterial"`
+e.g. `az dls fs upload --account shaheenadls --source-path "C:\Users\shaheen\Documents\Tutorial\Exercise1\myiris.csv" --destination-path "/TutorialMaterial"`
 
-Use the following command to list the files in a Data Lake Store account.  
+Use the following command to list the files in the folder *TutorialMaterial* that we created above in your Data Lake Store account.  
 `az dls fs list --account <Data Lake Store Account Name> --path /TutorialMaterial`
 
 To submit jobs use the following syntax:-   
 `az dla job submit --account "<Data Lake Analytics Account Name>" --job-name "<Job Name>" --script "<Script Path and Name>"`  
   
-e.g. `az dla job submit --account "shaheenadla" --job-name "myadlajob1" --script @"C:\Users\shaheen\Documents\Conferences\TutorialMaterial\Exercise1\usqlscriptEx1.usql"`  
+e.g. `az dla job submit --account "shaheenadla" --job-name "myadlajob1" --script @"C:\Users\shaheen\Documents\Tutorial\Exercise1\usqlscriptEx1.usql"`  
 "`
 
 To list jobs  
