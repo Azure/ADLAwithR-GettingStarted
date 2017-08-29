@@ -24,7 +24,7 @@ To list of all resource groups in your subscription type (you will need to selec
 If you don't already have one create a new Data Lake Store account:  
 `az dls account create --account "<Data Lake Store Account Name>" --resource-group "<Resource Group Name>"`
 
-If you don't already have one create a Data Lake Analytics account:
+If you don't already have one create a Data Lake Analytics account:  
 `az dla account create --account "<Data Lake Analytics Account Name>" --resource-group "<Resource Group Name>" --location "<Azure location>" --default-data-lake-store "<Default Data Lake Store Account Name>"`
 
 
@@ -51,7 +51,7 @@ To submit jobs use the following syntax:-
 e.g. `az dla job submit --account "shaheenadla" --job-name "myadlajob1" --script @"C:\Users\shaheen\Documents\Conferences\TutorialMaterial\Exercise1\usqlscriptEx1.usql"`  
 "`
 
-To list jobs
+To list jobs  
 `az dla job list --account "<Data Lake Analytics Account Name>"`     
 `az dla job show --account "<Data Lake Analytics Account Name>" --job-identity "<Job Id>"`  
 
