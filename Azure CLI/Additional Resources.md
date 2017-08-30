@@ -1,7 +1,6 @@
 # Additional Resources
 
-**Azure Data Lake Analytics**
-
+**Azure Data Lake Analytics**  
 [The Intelligent Data Lake](https://azure.microsoft.com/en-us/blog/the-intelligent-data-lake/)  
 [Azure Data Lake Explained on channel 9](https://channel9.msdn.com/Shows/Data-Exposed/Azure-Data-Lake-Explained)  
 [Overview of Microsoft Azure Data Lake Analytics](https://github.com/toddkitta/azure-content/blob/master/articles/data-lake-analytics/data-lake-analytics-overview.md)  
@@ -24,6 +23,6 @@
 [Scale U-SQL local run and test with Azure Data Lake U-SQL SDK](https://docs.microsoft.com/en-us/azure/data-lake-analytics/data-lake-analytics-u-sql-sdk)    
 [Tutorial: develop U-SQL scripts using Data Lake Tools for Visual Studio](https://github.com/toddkitta/azure-content/blob/master/articles/data-lake-analytics/data-lake-analytics-data-lake-tools-get-started.md)      
 
-**Azure Power Shell**
+**Azure Power Shell**  
 [Get started with Azure Data Lake Store using Azure PowerShell](https://docs.microsoft.com/en-us/azure/data-lake-store/data-lake-store-get-started-powershell)      
 [Tutorial: get started with Azure Data Lake Analytics using Azure PowerShell](https://github.com/toddkitta/azure-content/blob/master/articles/data-lake-analytics/data-lake-analytics-get-started-powershell.md)     
