@@ -3,7 +3,7 @@
 
 In this tutorial folder you will find a set of exercises to help you get started with using Azure Data Lake Analytics with R for Data Science work. Each Exercise folder contains usql and R scripts with description of the exercise. The advanced folder contains some more complex examples.
 
-Note: Please provision Azure Data Lake Analytics Account and Data Lake Store in your Azure subscription by following the instructions [here](../Azure%20CLI/) in order to do the exercises below. Upload [myiris.csv](../Exercise1/) and [myiris_header.csv](../Exercise1/) to /TutorialMaterial folder in your Data Lake Store. These csv files will be used in most of the exercises.
+Note: Please provision Azure Data Lake Analytics Account and Data Lake Store in your Azure subscription by following the instructions [here](../Azure%20CLI/) in order to do the exercises below. Upload [myiris](/Exercise1/) and [myiris_header.csv](../Exercise1/) to /TutorialMaterial folder in your Data Lake Store. These csv files will be used in most of the exercises.
 
 #### [Exercise 1](../Tutorial/Exercise1/) - Inline R code.
 #### [Exercise 2](../Tutorial/Exercise2/) - Deploy R script as resource.
