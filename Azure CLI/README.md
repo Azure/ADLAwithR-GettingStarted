@@ -1,6 +1,6 @@
 # Azure Data Lake Analytics with R Tutorial Using Azure CLI   
 
-There are multiple ways to manage Azure Data Lake Analytics viz. Azure Portal, Azure Power Shell, Visual Studio and Azure CLI. In this tutorial we will use Azure CLI to various tasks such as managing and submitting jobs. You can download it from [here](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli). To install the CLI on Windows and use it in the Windows command-line, download and run the MSI(https://aka.ms/InstallAzureCliWindows).  
+There are multiple ways to manage Azure Data Lake Analytics viz. Azure Portal, Azure Power Shell, Visual Studio and Azure CLI. In this tutorial we will use Azure CLI to various tasks such as managing and submitting jobs. You can download it from [here](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli). To install the CLI on Windows and use it in the Windows command-line, download and run the [MSI](https://aka.ms/InstallAzureCliWindows).  
 
 For a detailed syntax help with Azure CLI command please see the resources below:-  
 [Manage Azure Data Lake Analytics using Azure Command-line Interface (CLI)](https://docs.microsoft.com/en-us/azure/data-lake-analytics/data-lake-analytics-manage-use-cli)  
@@ -64,7 +64,7 @@ To submit jobs use the following syntax:-
 `az dla job submit --account "<Data Lake Analytics Account Name>" --job-name "<Job Name>" --script "<Script Path and Name>"`  
   
 For e.g.   
-`az dla job submit --account "shaheenadla" --job-name "myadlajob1" --script @"C:\Users\shaheen\Documents\Tutorial\Exercise1\usqlscriptEx1.usql"`  
+`az dla job submit --account "shaheenadla" --job-name "myadlajobex1" --script @"C:\Users\shaheen\Documents\Tutorial\Exercise1\usqlscriptEx1.usql"`  
 "`
 
 To list jobs  
