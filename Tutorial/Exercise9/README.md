@@ -2,5 +2,5 @@
 
 MRS Example
 
-In `usqlscriptEx9a.usql' we use rxDTree from RevoScaleR package.
+In `usqlscriptEx9a.usql` we use rxDTree from RevoScaleR package.
 
