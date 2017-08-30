@@ -84,9 +84,18 @@ For e.g.
 To download the file to your local machine use:    
 `az dls fs download --account "<Data Lake Store Account Name>" --source-path "/PathTo/outputfile.csv" --destintion-path "<Destination Path and File Name>"`    
 For e.g.    
-`az dls fs download --account "shaheenadls" --source-path "/TutorialMaterial/outex1.txt" --destination-path "C:\Users\shaheen\Documents\Tutorial\Exercise1"`  
+`az dls fs download --account "shaheenadls" --source-path "/TutorialMaterial/outex1.txt" --destination-path "C:\Users\shaheen\Documents\Tutorial\Exercise1"`    
+
+Once you have completed the tutorial and have no further need for the Data Lake Analytics Account and Data Lake Store created for the purpose please **delete** these resources in your subscription.  
+
+To delete Azure Data Lake Analytics account    
+`az dla account delete --account "<Data Lake Analytics Account Name>"`  
+
+To delete Azure Data Lake Store     
+`az dls account delete --account "<Data Lake Store>"`  
+
+Or you can delete the resource group which will delete all the resources in that resource group (press y when prompted).    
+`az group delete --name "<Resource Group Name>"`    
 
 
-
-===============
 
