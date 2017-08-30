@@ -7,6 +7,7 @@ Welcome to ***Getting Started with using ADLA with R*** tutorial! This tutorial 
 Before you begin this tutorial, you must have the following items:  
 - An Azure subscription. See [Get Azure free trial](https://azure.microsoft.com/en-us/free/).  
 - Azure CLI 2.0. See Install and configure [Azure CLI](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli).  
+- Azure Data Lake Analytics Account and Data Lake Store in your subscription.
 - Working knowledge of [R](https://cran.r-project.org/doc/manuals/R-intro.html). 
 
 ## ADLA review
