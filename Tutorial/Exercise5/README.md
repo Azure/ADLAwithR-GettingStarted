@@ -10,6 +10,9 @@ We Reduce on the partition key (Par in this case) to enable parallel processing.
 @RScriptOutput = REDUCE @ExtendedData ON Par
 PRODUCE ....
 
+Alternatively, we could use REDUCE ALL for not partitions. For e.g.
+@RScriptOutput = REDUCE @InputData ALL PRODUCE ....
+
 The R extension for U-SQL includes a built-in reducer (Extension.R.Reducer) that runs R code on each vertex assigned to the reducer.
 
 In real scenarios, we could partition by time/date, by machine ID, by hospital ID columns etc.

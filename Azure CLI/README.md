@@ -6,8 +6,10 @@ For a detailed syntax help with Azure CLI command please see the resources below
 [Manage Azure Data Lake Analytics using Azure Command-line Interface (CLI)](https://docs.microsoft.com/en-us/azure/data-lake-analytics/data-lake-analytics-manage-use-cli)  
 [Get started with Azure Data Lake Analytics using Azure CLI 2.0](https://docs.microsoft.com/en-us/azure/data-lake-analytics/data-lake-analytics-get-started-cli2)  
 [Get started with Azure Data Lake Store using Azure CLI 2.0](https://docs.microsoft.com/en-us/azure/data-lake-store/data-lake-store-get-started-cli-2.0)   
-[Commands to manage Data Lake Analytics accounts, jobs, and catalogs](https://docs.microsoft.com/en-us/cli/azure/dla).   
-[Commands to manage Data Lake Store accounts, and filesystems](https://docs.microsoft.com/en-us/cli/azure/dls)
+[Commands to manage Data Lake Analytics accounts, jobs, and catalogs](https://docs.microsoft.com/en-us/cli/azure/dla).     
+[Commands to manage Data Lake Store accounts, and filesystems](https://docs.microsoft.com/en-us/cli/azure/dls)  
+[Manage Subscriptions](https://docs.microsoft.com/en-us/cli/azure/account)  
+[Manage resource groups](https://docs.microsoft.com/en-us/cli/azure/group)  
 
 **Note**: Prerequisite for this tutorial is that you have an [Azure subscription](https://azure.microsoft.com/en-us/free/). 
 
@@ -22,12 +24,20 @@ To list of all resource groups in your subscription type
 
 You will need to select from this list or create a new resource group for creating new Data Lake Store account or Data Lake Analytics account. Each Data Lake Analytics account has an Azure Data Lake Store account dependency. This account is referred as the default Data Lake Store account. You can create the Data Lake Store account beforehand or when you create your Data Lake Analytics account. The default Data Lake Store account is used to store job metadata and job audit logs. After you have created an Analytics account, you can add additional Data Lake Storage accounts and/or Azure Storage account.       
 
+To create a new resource group:  
+`az group create --location --name`  
+For e.g.  
+`az group create --name shaheenrg --location "Central US"`
+
 If you don't already have one create a new Data Lake Store account:  
-`az dls account create --account "<Data Lake Store Account Name>" --resource-group "<Resource Group Name>"`
+`az dls account create --account "<Data Lake Store Account Name>" --resource-group "<Resource Group Name>"`  
+For e.g.  
+`az dls account create --account "shaheenadls" --resource-group "shaheenrg"`
 
 If you don't already have one create a Data Lake Analytics account:  
-`az dla account create --account "<Data Lake Analytics Account Name>" --resource-group "<Resource Group Name>" --location "<Azure location>" --default-data-lake-store "<Default Data Lake Store Account Name>"`
-
+`az dla account create --account "<Data Lake Analytics Account Name>" --resource-group "<Resource Group Name>" --location "<Azure location>" --default-data-lake-store "<Default Data Lake Store Account Name>"`  
+For e.g.  
+`az dla account create --account "shaheenadla" --resource-group "shaheenrg" --location "Central US" --default-data-lake-store "shaheenadls"`  
 
 After creating an account, you can use the following commands to list the accounts and show account details:  
 `az dla account list`  
@@ -38,7 +48,7 @@ Now that we are set with a *Data Lake Analytics account* and a *Data Lake Store*
 
 `az dls fs create --account <Data Lake Store Account Name> --path /TutorialMaterial --folder`
 
-Next we will upload myiris.csv, myiris_wheader.csv and other files as required for the Exercise to this folder.  
+Next we will upload myiris.csv, myiris_wheader.csv and other files as required for the Exercise to this folder.      
 `az dls fs upload --account <Data Lake Store Account Name> --source-path "PathTo\myiris.csv" --destination-path "/TutorialMaterial"`
 
 e.g. `az dls fs upload --account shaheenadls --source-path "C:\Users\shaheen\Documents\Tutorial\Exercise1\myiris.csv" --destination-path "/TutorialMaterial"`
@@ -54,20 +64,27 @@ e.g. `az dla job submit --account "shaheenadla" --job-name "myadlajob1" --script
 
 To list jobs  
 `az dla job list --account "<Data Lake Analytics Account Name>"`     
-`az dla job show --account "<Data Lake Analytics Account Name>" --job-identity "<Job Id>"`  
+ 
+For e.g.  
+`az dla job list --account shaheenadla | grep -e 'name' -e 'result' -e 'jobId'` 
 
 
-To Cancel job  
+To Cancel job   
 `az dla job cancel --account "<Data Lake Analytics Account Name>" --job-identity "<Job Id>"  `  
 
-After a job is completed, you can use the following commands to list the output files, and download the files:    
-`az dls fs list --account "<Data Lake Store Account Name>" --source-path "/Output" --destination-path "<Destintion>"`   
+After a job is completed, you can use the following commands to preview and download the output files:    
+   
+`az dls fs preview --account "<Data Lake Store Account Name>" --path "/PathTo/outputfile.csv"`      
 
-`az dls fs preview --account "<Data Lake Store Account Name>" --path "/TutorialMaterial/SearchLog-from-Data-Lake.csv"`    
+For e.g.    
+`az dls fs preview --account "shaheenadls" --path "/TutorialMaterial/outex1.txt"`  
 
-`az dls fs preview --account "<Data Lake Store Account Name>" --path "/Output/SearchLog-from-Data-Lake.csv" --length 128 --offset 0`   
+`az dls fs preview --account "shaheenadls" --path "/TutorialMaterial/outex1.txt" --length 1000 --offset 0`    
 
-`az dls fs download --account "<Data Lake Store Account Name>" --source-path "/Output/SearchLog-from-Data-Lake.csv" --destintion-path "<Destination Path and File Name>"`
+To download the file to your local machine use:    
+`az dls fs download --account "<Data Lake Store Account Name>" --source-path "/PathTo/outputfile.csv" --destintion-path "<Destination Path and File Name>"`    
+For e.g.    
+`az dls fs download --account "shaheenadls" --source-path "/TutorialMaterial/outex1.txt" --destination-path "C:\Users\shaheen\Documents\Tutorial\Exercise1"`  
 
 
 

@@ -1,14 +1,24 @@
 REFERENCE ASSEMBLY [ExtR];
 
-DEPLOY RESOURCE @"/TutorialMaterial/base64enc.zip";
-DEPLOY RESOURCE @"/TutorialMaterial/rscriptEx8a.R";
+//DEPLOY RESOURCE @"/TutorialMaterial/base64enc.zip";
+//DEPLOY RESOURCE @"/TutorialMaterial/rscriptEx8a.R";
 
 
 DECLARE @myInputFile1 string   = @"/TutorialMaterial/outex7a.txt";
 DECLARE @myInputFile2 string   = @"/TutorialMaterial/myiris_wheader.csv";
-DECLARE @myOutputFile string   = @"/TutorialMaterial/outex8a.txt";
+DECLARE @myOutputFile string   = @"/TutorialMaterial/outex8aa.txt";
 
 DECLARE @PartitionCount int = 5;
+
+DECLARE @myRScript = @"
+partition<-rightFromUSQL$MPar[1] +1
+right = subset(rightFromUSQL,rightFromUSQL$MPar==1)
+left  = subset(leftFromUSQl,leftFromUSQl$Par==1)
+left$MPar = right$MPar
+left$Model = right$Model
+outputToUSQL=data.frame(left)
+";
+
 
 
 @Models = EXTRACT 
@@ -26,7 +36,8 @@ FROM @myInputFile2
 USING Extractors.Csv();
 
 @ExtendedData = SELECT
-Extension.R.RandomNumberGenerator.GetRandomNumber(@PartitionCount) AS Par,
+//Extension.R.RandomNumberGenerator.GetRandomNumber(@PartitionCount) AS Par,
+0 AS Par,
 *
 FROM @InputData;
 
@@ -35,14 +46,15 @@ COMBINE @ExtendedData AS Data
 WITH @Models AS Models
 ON Data.Par == Models.MPar
 PRODUCE
-Prediction double, 
-MPar int, 
 Par int, 
 SepalLength double,
 SepalWidth double,
 PetalLength double,
 PetalWidth double,
-Species  string
-USING new Extension.R.Combiner(scriptFile:"rscriptEx8a.R", stringsAsFactors:false);
+Species  string,
+MPar int, 
+Model string
+USING new Extension.R.Combiner(command:@myRScript, rReturnType:"dataframe");
+//USING new Extension.R.Combiner(scriptFile:"rscriptEx8a.R", stringsAsFactors:false);
 
 OUTPUT @Predictions TO @myOutputFile USING Outputters.Tsv();

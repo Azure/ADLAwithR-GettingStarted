@@ -20,14 +20,14 @@ outputToUSQL <- data.frame(Model=base64encode(serialize(lm.fit, NULL)), stringsA
 
 DECLARE @PartitionCount int = 5;
 
-@InputData =
-    EXTRACT SepalLength double,
-            SepalWidth double,
-            PetalLength double,
-            PetalWidth double,
-            Species  string
-    FROM @myInputFile
-    USING Extractors.Csv();
+@InputData = EXTRACT 
+SepalLength double,
+SepalWidth double,
+PetalLength double,
+PetalWidth double,
+Species  string
+FROM @myInputFile
+USING Extractors.Csv();
 
 @ExtendedData =
 SELECT 
@@ -35,7 +35,7 @@ Extension.R.RandomNumberGenerator.GetRandomNumber(@PartitionCount) AS Par,
  *
 FROM @InputData;
 	
-@ModelCoefficients = REDUCE @ExtendedData ON Par
+@ModelSerialized = REDUCE @ExtendedData ON Par
 PRODUCE 
 Par int, 
 Model string
@@ -43,4 +43,4 @@ READONLY Par
 USING new Extension.R.Reducer(command:@myRScript, rReturnType:"dataframe"); // for inline R code
 
 
-OUTPUT @ModelCoefficients TO @myOutputFile USING Outputters.Tsv();
+OUTPUT @ModelSerialized TO @myOutputFile USING Outputters.Tsv();
