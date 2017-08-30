@@ -1,6 +1,6 @@
 # Azure Data Lake Analytics with R Tutorial Using Azure CLI   
 
-There are multiple ways to manage Azure Data Lake Analytics viz. Azure Portal, Azure Power Shell, Visual Studio and Azure CLI. In this tutorial we will use Azure CLI to various tasks such as managing and submitting jobs.
+There are multiple ways to manage Azure Data Lake Analytics viz. Azure Portal, Azure Power Shell, Visual Studio and Azure CLI. In this tutorial we will use Azure CLI to various tasks such as managing and submitting jobs. You can download it from [here](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli). To install the CLI on Windows and use it in the Windows command-line, download and run the MSI(https://aka.ms/InstallAzureCliWindows).  
 
 For a detailed syntax help with Azure CLI command please see the resources below:-  
 [Manage Azure Data Lake Analytics using Azure Command-line Interface (CLI)](https://docs.microsoft.com/en-us/azure/data-lake-analytics/data-lake-analytics-manage-use-cli)  
@@ -17,7 +17,10 @@ Log into your Azure subscription
 `az login`
 
 Once you log in, the window lists all the Azure subscriptions that are associated with your account. Use the following command to use a specific subscription.  
-`az account set --subscription "My subscription"`
+`az account set --subscription "My subscription"`  
+
+Confirm that you are in the correct subscription  
+`az account show`  
 
 To list of all resource groups in your subscription type   
 `az group list` 
@@ -51,7 +54,8 @@ Now that we are set with a *Data Lake Analytics account* and a *Data Lake Store*
 Next we will upload myiris.csv, myiris_wheader.csv and other files as required for the Exercise to this folder.      
 `az dls fs upload --account <Data Lake Store Account Name> --source-path "PathTo\myiris.csv" --destination-path "/TutorialMaterial"`
 
-e.g. `az dls fs upload --account shaheenadls --source-path "C:\Users\shaheen\Documents\Tutorial\Exercise1\myiris.csv" --destination-path "/TutorialMaterial"`
+For e.g.   
+`az dls fs upload --account shaheenadls --source-path "C:\Users\shaheen\Documents\Tutorial\Exercise1\myiris.csv" --destination-path "/TutorialMaterial"`
 
 Use the following command to list the files in the folder *TutorialMaterial* that we created above in your Data Lake Store account.  
 `az dls fs list --account <Data Lake Store Account Name> --path /TutorialMaterial`
@@ -59,7 +63,8 @@ Use the following command to list the files in the folder *TutorialMaterial* tha
 To submit jobs use the following syntax:-   
 `az dla job submit --account "<Data Lake Analytics Account Name>" --job-name "<Job Name>" --script "<Script Path and Name>"`  
   
-e.g. `az dla job submit --account "shaheenadla" --job-name "myadlajob1" --script @"C:\Users\shaheen\Documents\Tutorial\Exercise1\usqlscriptEx1.usql"`  
+For e.g.   
+`az dla job submit --account "shaheenadla" --job-name "myadlajob1" --script @"C:\Users\shaheen\Documents\Tutorial\Exercise1\usqlscriptEx1.usql"`  
 "`
 
 To list jobs  
