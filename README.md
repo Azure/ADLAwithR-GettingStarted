@@ -1,5 +1,4 @@
-# Getting Started with using ADLA with R - A Tutorial
-by @Shaheen_Gauher
+# Getting Started with using ADLA with R - A Tutorial  
 
 Welcome to ***Getting Started with using ADLA with R*** tutorial! This tutorial is in the form of short exercises to help Data Scientists get started with using Azure Data Lake Analytics (ADLA) with R for Data Science work. In the [**tutorial**](/Tutorial/) folder above you will find a set of exercises with usql and R scripts with description of the exercise. In the [advanced](/Tutorial/Advanced/) folder under tutorial you will find some more complex examples. Below you will find a brief review of ADLA and USQL. I will also outline steps for deploying R code and to get started using Azure CLI.
 
