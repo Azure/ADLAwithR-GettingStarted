@@ -1,0 +1,4 @@
+species,mean_sepal_length,mean_sepal_width,mean_petal_length,mean_petal_width
+Iris-setosa,5.006,3.418,1.464,0.244
+Iris-versicolor,5.936,2.77,4.26,1.326
+Iris-virginica,6.588,2.974,5.552,2.026
