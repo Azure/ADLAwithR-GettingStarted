@@ -25,4 +25,5 @@ Submit Data Lake Analytics jobs and Retrieve job results. In the [Azure CLI fold
 ## [Additional Resources](/Azure%20CLI/Additional%20Resources.md/)
 
 
-### For Questions, comments and feedback please visit the tutorial page at [Cortana Intelligence Gallery](https://gallery.cortanaintelligence.com/Tutorial/Getting-Started-with-using-Azure-Data-Lake-Analytics-with-R-A-Tutorial) and use the comment section at the bottom.
+
+**For Questions, comments and feedback please visit the tutorial page at [Cortana Intelligence Gallery](https://gallery.cortanaintelligence.com/Tutorial/Getting-Started-with-using-Azure-Data-Lake-Analytics-with-R-A-Tutorial) and use the comment section at the bottom.**
