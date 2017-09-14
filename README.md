@@ -23,3 +23,6 @@ You need a Data Lake Analytics account before you can run any jobs. If you don't
 Submit Data Lake Analytics jobs and Retrieve job results. In the [Azure CLI folder](/Azure%20CLI/) above you can find the commands to manage Data Lake Analytics accounts, jobs etc.
 
 ## [Additional Resources](/Azure%20CLI/Additional%20Resources.md/)
+
+
+### For Questions, comments and feedback please visit the tutorial page at [Cortana Intelligence Gallery](https://gallery.cortanaintelligence.com/Tutorial/Getting-Started-with-using-Azure-Data-Lake-Analytics-with-R-A-Tutorial) and use the comment section at the bottom.
