@@ -10,7 +10,8 @@
 [USQL](https://github.com/Azure/usql/)   
 [U-SQL Language Reference](https://msdn.microsoft.com/en-us/library/azure/mt591959.aspx)   
 [Introducing U-SQL – A Language that makes Big Data Processing Easy](https://blogs.msdn.microsoft.com/visualstudio/2015/09/28/introducing-u-sql-a-language-that-makes-big-data-processing-easy/)   
-[U-SQL programmability guide](https://docs.microsoft.com/en-us/azure/data-lake-analytics/data-lake-analytics-u-sql-programmability-guide)      
+[U-SQL programmability guide](https://docs.microsoft.com/en-us/azure/data-lake-analytics/data-lake-analytics-u-sql-programmability-guide)   
+[Get started with Azure Data Lake Analytics U-SQL language](https://github.com/toddkitta/azure-content/blob/master/articles/data-lake-analytics/data-lake-analytics-u-sql-get-started.md)   
 
 
 **Azure Portal**  
