@@ -30,8 +30,9 @@
 [Get started with Azure Data Lake Store using Azure PowerShell](https://docs.microsoft.com/en-us/azure/data-lake-store/data-lake-store-get-started-powershell)      
 [Tutorial: get started with Azure Data Lake Analytics using Azure PowerShell](https://github.com/toddkitta/azure-content/blob/master/articles/data-lake-analytics/data-lake-analytics-get-started-powershell.md)    
 
-** Azure Data Lake Analytics with Python**
-[Scalable Data Science with Azure Data Lake: An end-to-end Walkthrough](https://docs.microsoft.com/en-us/azure/machine-learning/machine-learning-data-science-process-data-lake-walkthrough#ingest)  
+
+**Azure Data Lake Analytics with Python**  
+[Scalable Data Science with Azure Data Lake: An end-to-end Walkthrough](https://docs.microsoft.com/en-us/azure/machine-learning/machine-learning-data-science-process-data-lake-walkthrough#ingest)    
 [Azure Data Lake Walkthrough on Github](https://github.com/Azure/Azure-MachineLearning-DataScience/tree/master/Misc/AzureDataLakeWalkthrough)    
 
 
