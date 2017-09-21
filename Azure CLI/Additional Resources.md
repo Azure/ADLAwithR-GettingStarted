@@ -4,6 +4,7 @@
 [The Intelligent Data Lake](https://azure.microsoft.com/en-us/blog/the-intelligent-data-lake/)  
 [Azure Data Lake Explained on channel 9](https://channel9.msdn.com/Shows/Data-Exposed/Azure-Data-Lake-Explained)  
 [Overview of Microsoft Azure Data Lake Analytics](https://github.com/toddkitta/azure-content/blob/master/articles/data-lake-analytics/data-lake-analytics-overview.md)  
+[Examples](https://github.com/Azure/usql/tree/master/Examples)  
 
 **USQL**  
 [Get started with U-SQL](https://docs.microsoft.com/en-us/azure/data-lake-analytics/data-lake-analytics-u-sql-get-started)     
@@ -27,4 +28,11 @@
 
 **Azure Power Shell**  
 [Get started with Azure Data Lake Store using Azure PowerShell](https://docs.microsoft.com/en-us/azure/data-lake-store/data-lake-store-get-started-powershell)      
-[Tutorial: get started with Azure Data Lake Analytics using Azure PowerShell](https://github.com/toddkitta/azure-content/blob/master/articles/data-lake-analytics/data-lake-analytics-get-started-powershell.md)     
+[Tutorial: get started with Azure Data Lake Analytics using Azure PowerShell](https://github.com/toddkitta/azure-content/blob/master/articles/data-lake-analytics/data-lake-analytics-get-started-powershell.md)    
+
+** Azure Data Lake Analytics with Python**
+[Scalable Data Science with Azure Data Lake: An end-to-end Walkthrough](https://docs.microsoft.com/en-us/azure/machine-learning/machine-learning-data-science-process-data-lake-walkthrough#ingest)  
+[Azure Data Lake Walkthrough on Github](https://github.com/Azure/Azure-MachineLearning-DataScience/tree/master/Misc/AzureDataLakeWalkthrough)    
+
+
+ 
