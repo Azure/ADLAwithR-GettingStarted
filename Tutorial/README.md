@@ -5,7 +5,7 @@ In this tutorial folder you will find a set of exercises to help you get started
 
 Note: Please provision Azure Data Lake Analytics Account and Data Lake Store in your Azure subscription by following the instructions [here](../Azure%20CLI/) in order to do the exercises below. Upload [myiris.csv](/Tutorial/Exercise1/) and [myiris_wheader.csv](../Tutorial/Exercise1/) to /TutorialMaterial folder in your Data Lake Store. These csv files will be used in most of the exercises.
 
-**To use Jupyter notebook to do this tutorial please find the [notebook here](https://github.com/Azure/ADLAwithR-GettingStarted/blob/master/Azure%20CLI/Create_Azure_Resources.ipynb). We will use the az cli commands you will see below from within a Jupyter notebook.**
+**To use Jupyter notebook to do this tutorial please find the [notebook here](https://github.com/Azure/ADLAwithR-GettingStarted/blob/master/Azure%20CLI/Create_Azure_Resources.ipynb). We will use the az cli commands from within a Jupyter notebook.**
 
 
 
