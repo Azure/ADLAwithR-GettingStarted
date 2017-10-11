@@ -18,9 +18,9 @@ U-SQL is the new big data query language of the Azure Data Lake Analytics servic
 ## Deploying R Code
 R Extensions for U-SQL enable developers to perform massively parallel execution of R code for end to end data science scenarios covering: merging various data files, massively parallel feature engineering, partitioned data model building, scoring and post deployment. In order to deploy R code in we need to install the usqlext in our azure data lake analytics account and within the usql script use the REFERENCE ASSEMBLY statement to enable R extensions for the U-SQL Script. More sample codes for using R can also be found in the following folder in your Data Lake Store:<your_account_address>/usqlext/samples/R.
 
-## [Azure Data Lake Analytics with R Tutorial Using Azure CLI](/Azure%20CLI/)  
+## [Azure Data Lake Analytics with R Tutorial Using Jupyter notebook and Azure CLI](/Azure%20CLI/)  
 You need a Data Lake Analytics account before you can run any jobs. If you don't have one please follow the instructions [here](/Azure%20CLI/) to create one (this is assuming you satisfy the prequisite of having an [azure subsciption](https://azure.microsoft.com/en-us/free/)). You will also need to [enable](https://blogs.msdn.microsoft.com/tsmatsuz/2017/06/08/azure-data-lake-r-extension/) “U-SQL Advanced Analytics”, which includes the package for the R extension. In this tutorial we will be using Azure CLI to perform the following tasks: Upload data to Data Lake Store,
-Submit Data Lake Analytics jobs and Retrieve job results. In the [Azure CLI folder](/Azure%20CLI/) above you can find the commands to manage Data Lake Analytics accounts, jobs etc.
+Submit Data Lake Analytics jobs and Retrieve job results. In the [Azure CLI folder](/Azure%20CLI/) above you can find the commands to manage Data Lake Analytics accounts, jobs etc. We will use a [**jupyter notebook**](/Azure%20CLI/Tutorial_with_Jupyter_Notebook.ipynb) in this tutorial to perform all the tasks above.
 
 ## [Additional Resources](/Azure%20CLI/Additional%20Resources.md/)
 
