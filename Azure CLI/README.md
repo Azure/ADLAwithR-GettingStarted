@@ -13,7 +13,7 @@ For a detailed syntax help with Azure CLI command please see the resources below
 
 Note: Prerequisite for this tutorial is that you have an [Azure subscription](https://azure.microsoft.com/en-us/free/). 
 
-#### To use Jupyter notebook to do this tutorial please find the [notebook here](https://github.com/Azure/ADLAwithR-GettingStarted/blob/master/Azure%20CLI/Tutorial_with_Jupyter_Notebook.ipynb). We will use the az cli commands you will see below from inside a Jupyter notebook.
+### To use Jupyter notebook to do this tutorial please find the [notebook here](https://github.com/Azure/ADLAwithR-GettingStarted/blob/master/Azure%20CLI/Tutorial_with_Jupyter_Notebook.ipynb). We will use the az cli commands you will see below from inside a Jupyter notebook.
 
 
 Log into your Azure subscription  
