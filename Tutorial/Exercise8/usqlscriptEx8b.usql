@@ -1,7 +1,7 @@
 REFERENCE ASSEMBLY [ExtR];
 
 DEPLOY RESOURCE @"/TutorialMaterial/base64enc.zip";
-DEPLOY RESOURCE @"/TutorialMaterial/rscriptEx8a.R";
+DEPLOY RESOURCE @"/TutorialMaterial/rscriptEx8b.R";
 
 DECLARE @myInputFile1 string   = @"/TutorialMaterial/outex7a.txt";
 DECLARE @myInputFile2 string   = @"/TutorialMaterial/myiris.csv";
@@ -42,6 +42,6 @@ SepalWidth double,
 PetalLength double,
 PetalWidth double,
 Species  string
-USING new Extension.R.Combiner(scriptFile:"rscriptEx8a.R", stringsAsFactors:false);
+USING new Extension.R.Combiner(scriptFile:"rscriptEx8b.R", stringsAsFactors:false);
 
 OUTPUT @Predictions TO @myOutputFile USING Outputters.Tsv();
